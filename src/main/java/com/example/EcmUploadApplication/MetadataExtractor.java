@@ -1,5 +1,11 @@
 package com.example.EcmUploadApplication;
 
+import org.hibernate.boot.Metadata;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.time.LocalDate;
+
 @Component
 public class MetadataExtractor {
 

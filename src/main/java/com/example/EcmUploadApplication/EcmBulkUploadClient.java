@@ -1,6 +1,10 @@
 package com.example.EcmUploadApplication;
 
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.hibernate.boot.Metadata;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.http.HttpHeaders;
@@ -13,6 +17,10 @@ public class EcmBulkUploadClient {
 
     @Value("${ecm.bulkUpload.url}")
     private String bulkUploadUrl;
+
+    public EcmBulkUploadClient(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     public String uploadDocument(MultipartFile file, Metadata metadata) {
 

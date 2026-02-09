@@ -1,5 +1,6 @@
 package com.example.EcmUploadApplication;
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @EnableWebSecurity
@@ -13,5 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer().jwt();
+
+        //todo : add auth based on more rbac roles
     }
 }

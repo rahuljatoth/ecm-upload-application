@@ -1,9 +1,6 @@
 package com.example.EcmUploadApplication;
 
 
-import com.example.ecmupload.dto.UploadRequest;
-import com.example.ecmupload.dto.UploadResponse;
-import com.example.ecmupload.service.UploadOrchestratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class UploadController {
 
-    protected final UploadOrchestratorService orchestratorService;
+    public final UploadOrchestratorService orchestratorService;
+
+    public UploadController(UploadOrchestratorService orchestratorService) {
+        this.orchestratorService = orchestratorService;
+    }
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<UploadResponse> uploadDocument(
